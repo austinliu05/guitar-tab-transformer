@@ -1,0 +1,14 @@
+.navbar {
+    .navbar-brand {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+
+    .nav-link {
+        margin-right: 1rem;
+
+        &:hover {
+            color: #607dc6;
+        }
+    }
+}
