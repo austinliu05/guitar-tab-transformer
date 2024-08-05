@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/CustomNavbar.scss'
 import logo from '../assets/images/logo.png';
 
@@ -13,9 +14,9 @@ const CustomNavbar: React.FC = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#binary-classification">Binary Classification</Nav.Link>
-                        <Nav.Link href="#multiclass-classification">Multiclass Classification</Nav.Link>
+                    <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                    <Nav.Link as={Link} to="/binary-classification">Binary Classification</Nav.Link>
+                    <Nav.Link as={Link} to="/multiclass-classification">Multiclass Classification</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

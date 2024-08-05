@@ -1,11 +1,19 @@
+import { Routes, Route } from 'react-router-dom';
 import CustomNavbar from './components/Navbar';
 import Home from './components/Home';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <div className="App">
       <CustomNavbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/binary-classification" />
+        <Route path="/multiclass-classification" />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
