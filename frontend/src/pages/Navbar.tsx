@@ -11,7 +11,7 @@ const CustomNavbar: React.FC = () => {
     return (
         <Navbar bg="dark" variant='dark' expand="lg">
             <Container>
-                <Navbar.Brand href="home">
+                <Navbar.Brand>
                     <img src={logo} width='50' height='50' className="d-inline-block align-top rotated-logo"
                         alt="Guitar Tab Transformer logo" />
                 </Navbar.Brand>
@@ -20,8 +20,8 @@ const CustomNavbar: React.FC = () => {
                     <Nav className="me-auto">
                         <Nav.Link 
                             as={Link} 
-                            to="/home" 
-                            className={location.pathname === '/home' ? "active-link" : ""}
+                            to="/" 
+                            className={location.pathname === '/' ? "active-link" : ""}
                         >
                             Home
                         </Nav.Link>

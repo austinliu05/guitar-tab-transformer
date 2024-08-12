@@ -6,12 +6,19 @@
 
     .nav-link {
         margin-right: 1rem;
+        color: #afafaf;
 
         &:hover {
             color: #607dc6;
         }
+
+        &:visited,
+        &:active,
+        &:focus {
+            color: #ccc;
+        }
         &.active-link {
-            color: #fff
+            color: #ffffff;
         }
     }
 }
