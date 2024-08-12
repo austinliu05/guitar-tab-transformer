@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Timeline from "../components/Timeline";
 
 const Home: React.FC = () => {
     return (
@@ -13,14 +14,15 @@ const Home: React.FC = () => {
                     href='https://www.perplexity.ai/search/what-are-guitar-tabs-pJADgdOlTz6KabGjnNobOg#0'
                     target="_blank"
                     rel="noopener noreferrer">guitar tabs</a>.
-                    As my first machine learning project, I have decided to divide the project into incremental steps as shown below.</p>
+                    As my first machine learning project, I have decided to divide the project into incremental steps.</p>
             </Row>
-            <Row className='mt-5'>
+            <Row className='mt-3'>
                 <Col>
                     <h2>Timeline</h2>
+                    <Timeline/>
                 </Col>
             </Row>
-            <Row className='my-5'>
+            <Row className='my-3'>
                 <Col>
                     <h2>Frustration</h2>
                 </Col>

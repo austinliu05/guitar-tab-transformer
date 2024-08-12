@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import CustomNavbar from './components/Navbar';
-import Home from './components/Home';
-import NotFound from './components/NotFound';
-
+import CustomNavbar from './pages/Navbar';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import Footer from './components/Footer'
 function App() {
   return (
     <div className="App">
@@ -14,6 +14,7 @@ function App() {
         <Route path="/multiclass-classification" />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
