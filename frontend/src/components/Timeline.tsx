@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/Timeline.scss'
 
 interface TimelineItemProps {
     date: string;
@@ -22,7 +23,7 @@ const timelineData = [
     {
         date: "08/2024",
         title: "Advancing to Multiclass Classification",
-        description: "By August, I made significant progress towards the final product. I enhanced the CNN to not only identify notes but also determine their durations based on the notehead and stem. The model further classified notes based on their position within the staff and generalized its recognition to new music sheets found online.",
+        description: "By August, I made significant progress towards the final product. I enhanced the CNN to not only identify notes but also determine their durations based on the notehead and stem. The plan is to develop a model to classify notes based on their position within the staff and generalized its recognition to new unseen music sheets.",
         image: ""
     },    
 ];
@@ -34,7 +35,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({date, title, description}) =
                 <div className = 'timeline-date me-3'>
                     <h5 className='mb-0'>{date}</h5>
                 </div>
-                <div className='timeline-content bg-light p-3 rounded'>
+                <div className='timeline-content p-3 rounded'>
                     <h5 className='fw-bold'>{title}</h5>
                     <p>{description}</p>
                 </div>
