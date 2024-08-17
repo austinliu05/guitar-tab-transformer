@@ -11,19 +11,19 @@ const timelineData = [
     {
         date: "06/2024",
         title: "Laying the Foundation",
-        description: "I spent June deepening my understanding of Machine Learning by completing courses from MIT OpenCourseWare. This intensive study provided a solid foundation for my upcoming projects.",
+        description: "I focused on deepening my understanding of Machine Learning by completing courses from MIT OpenCourseWare. This intensive study provided a solid foundation for my upcoming projects.",
         image: ""
     },
     {
         date: "07/2024",
-        title: "Exploring Classification Techniques",
-        description: "In July, I developed a Convolutional Neural Network (CNN) to analyze music sheets. The model successfully identified whether an element was a note and classified it into its respective category.",
+        title: "Simple Binary/Multiclass Classification",
+        description: "I developed a Convolutional Neural Network (CNN) to analyze music sheets. The model successfully identified whether an element was a note and classified it into its respective musical category.",
         image: ""
     },
     {
         date: "08/2024",
-        title: "Advancing to Multiclass Classification",
-        description: "By August, I made significant progress towards the final product. I enhanced the CNN to not only identify notes but also determine their durations based on the notehead and stem. The plan is to develop a model to classify notes based on their position within the staff and generalized its recognition to new unseen music sheets.",
+        title: "Advancing to Notehead Classification",
+        description: "Currently working on creating a model to recognize noteheads and their relative positions in the staff line. Once I have completed this task, I can begin designing an algorithm to convert the processed music sheets into guitar tabs.",
         image: ""
     },    
 ];

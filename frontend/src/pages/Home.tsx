@@ -27,7 +27,7 @@ const Home: React.FC = () => {
             <Row className='mt-3 mb-4'>
                 <Col>
                     <h2>Frustration</h2>
-                    <p>This project stems from my deep passion for guitar. As an amateur, I don't have perfect pitch, and I'm not one to instantly pick up a song by ear. I rely heavily on online tablature to learn new pieces. However, the frequent paywalls and limitations became frustrating. Driven by this frustration and a desire to challenge my computer science skills, I decided to create this project as a solution.</p>
+                    <p>This project stems from my passion for guitar. As an amateur, I don't have perfect pitch, so I'm not one to instantly pick up a song by ear. I rely heavily on online tablature to learn new pieces. However, the frequent paywalls and limitations became frustrating. Driven by this frustration and a desire to challenge my computer science skills, I decided to create this project as a solution.</p>
                 </Col>
             </Row>
         </Container>

@@ -47,7 +47,7 @@ const CustomNavbar: React.FC = () => {
                             target="_blank" 
                             href='https://www.kaggle.com/code/apoxieforest/gtt-note-identification'
                         >
-                            Note Classification
+                            Notehead Classification
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
