@@ -10,8 +10,8 @@ interface TimelineItemProps {
 const timelineData = [
     {
         date: "06/2024",
-        title: "Laying the Foundation",
-        description: "I focused on deepening my understanding of Machine Learning by completing courses from MIT OpenCourseWare. This intensive study provided a solid foundation for my upcoming projects.",
+        title: "Building a Foundation",
+        description: "I focused on deepening my understanding of Machine Learning by completing courses from MIT OpenCourseWare. This intensive study provided a solid foundation for my upcoming projects.\n Resources:",
         image: ""
     },
     {
