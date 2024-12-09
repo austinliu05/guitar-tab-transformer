@@ -24,7 +24,7 @@ const CustomNavbar: React.FC = () => {
                         >
                             Home
                         </Nav.Link>
-                        {/* <Nav.Link 
+                        <Nav.Link 
                             target="_blank" 
                             href='https://www.kaggle.com/code/apoxieforest/gtt-intro-preprocessing'
                         >
@@ -47,7 +47,7 @@ const CustomNavbar: React.FC = () => {
                             href='https://www.kaggle.com/code/apoxieforest/gtt-note-identification'
                         >
                             Notehead Classification
-                        </Nav.Link> */}
+                        </Nav.Link>
                         <Nav.Link
                             as={Link}
                             to="/blog/notehead-classification"
