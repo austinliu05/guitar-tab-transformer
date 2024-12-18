@@ -81,3 +81,11 @@ def visualize_spectrogram_with_bars(file_path, tempo, time_signature):
 
     print("Measures: ", measures)
     print("Bar duration: ", measure_duration)
+
+if __name__ == "__main__":
+    file_path = "mp3-files/sample-test-1.mp3"
+
+    # Visualize the waveform and spectral centroid
+    visualize_waveform(file_path)
+    visualize_spectral_centroid(file_path)
+    visualize_spectrogram_with_bars(file_path, 78, (4,4))

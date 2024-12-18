@@ -1,6 +1,6 @@
 import librosa
 from tqdm import tqdm
-from visualization import visualize_spectral_centroid, visualize_waveform, visualize_spectrogram_with_bars
+import numpy as np
 
 def analyze_audio(file_path):
     # Loading the audio file
@@ -27,18 +27,39 @@ def analyze_audio(file_path):
         features['spectral_centroid'] = spectral_centroid.mean()
         pbar.update(1)
     
-    return features
+    return y, sr, features
     
+def extract_notes(y, sr):    
+    # Compute spectrogram
+    spectrogram = librosa.stft(y)
+    spectrogram_db = librosa.amplitude_to_db(np.abs(spectrogram), ref=np.max)
+    
+    # Identifying prominent features
+    prominent_freq = np.argmax(np.abs(spectrogram), axis = 0) # Finds index of the maximum value 
+    prominent_freq_hz = prominent_freq * (sr / spectrogram.shape[0]) # Converting freq into hertz
+    
+    # Handle invalid frequencies
+    prominent_freq_hz = np.nan_to_num(prominent_freq_hz, nan=0.0, posinf=0.0, neginf=0.0)
+    valid_freq_hz = prominent_freq_hz[prominent_freq_hz > 0]  # Retain only positive frequencies
+    
+    # Convert valid frequencies to notes
+    notes = librosa.hz_to_note(valid_freq_hz)
+    
+    # Aggregate and filter notes (optional, to remove duplicates or noise)
+    unique_notes, counts = np.unique(notes, return_counts=True)
+    note_frequencies = dict(zip(unique_notes, counts))
+
+    return note_frequencies
 if __name__ == "__main__":
     file_path = "mp3-files/sample-test-1.mp3"
     
     # Analyze audio and extract features
-    result = analyze_audio(file_path)
+    y,sr, result = analyze_audio(file_path)
     print(f"Duration: {result['duration']} seconds")
     print(f"Spectral Centroid (mean): {result['spectral_centroid'].mean()}")
-
-    # Visualize the waveform and spectral centroid
-    visualize_waveform(file_path)
-    visualize_spectral_centroid(file_path)
     
-    visualize_spectrogram_with_bars(file_path, 78, (4,4))
+    # Extract notes for the entire song
+    note_frequencies = extract_notes(y, sr)
+    print("Extracted Notes:")
+    for note, count in note_frequencies.items():
+        print(f"{note}: {count} occurrences")
