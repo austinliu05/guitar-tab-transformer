@@ -1,6 +1,6 @@
 import librosa
 from tqdm import tqdm
-from visualization import visualize_spectral_centroid, visualize_waveform
+from visualization import visualize_spectral_centroid, visualize_waveform, visualize_spectrogram_with_bars
 
 def analyze_audio(file_path):
     # Loading the audio file
@@ -40,3 +40,5 @@ if __name__ == "__main__":
     # Visualize the waveform and spectral centroid
     visualize_waveform(file_path)
     visualize_spectral_centroid(file_path)
+    
+    visualize_spectrogram_with_bars(file_path, 78, (4,4))
