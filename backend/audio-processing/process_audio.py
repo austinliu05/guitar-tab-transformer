@@ -3,11 +3,14 @@ from tqdm import tqdm
 import numpy as np
 import sounddevice as sd
 import matplotlib.pyplot as plt
+import torch
 
+# Play audio function
 def play_audio(y, sr):
     sd.play(y, sr)
     sd.wait()  # Wait until audio playback is finished
 
+# Analyze audio and extract features
 def analyze_audio(file_path):
     y, sr = librosa.load(file_path, sr=None)
     
@@ -21,12 +24,11 @@ def analyze_audio(file_path):
         pbar.update(1)
     
     return y, sr, features
-    
-def harmonic_percussive_separation(y):
-    # Perform HPSS
+
+# Harmonic-Percussive Separation (HPSS)
+def harmonic_percussive_separation(y, sr):
     y_harmonic, y_percussive = librosa.effects.hpss(y)
     
-    # Plot waveforms for visualization
     plt.figure(figsize=(12, 6))
     plt.subplot(3, 1, 1)
     librosa.display.waveshow(y, sr=sr)
@@ -45,48 +47,60 @@ def harmonic_percussive_separation(y):
     
     return y_harmonic, y_percussive
 
+# Extract notes in sequence
 def extract_notes_in_sequence(y, sr):
-    # Compute spectrogram
     spectrogram = librosa.stft(y)
     spectrogram_db = librosa.amplitude_to_db(np.abs(spectrogram), ref=np.max)
     
-    # Identify prominent frequencies at each time frame
     prominent_freq = np.argmax(np.abs(spectrogram), axis=0)  
     prominent_freq_hz = prominent_freq * (sr / spectrogram.shape[0])
-    
-    # Replace invalid frequencies
     prominent_freq_hz = np.nan_to_num(prominent_freq_hz, nan=0.0, posinf=0.0, neginf=0.0)
-    
-    # Clip frequencies to audible range (20 Hz to 20,000 Hz)
     prominent_freq_hz = np.clip(prominent_freq_hz, 20, 20000)
     
-    # Convert frequencies to notes in sequence
     notes_sequence = librosa.hz_to_note(prominent_freq_hz)
     
-    # Calculate time per frame and durations
     frame_times = librosa.frames_to_time(np.arange(len(prominent_freq_hz)), sr=sr)
-    durations = np.diff(frame_times, append=frame_times[-1])  # Duration per note
+    durations = np.diff(frame_times, append=frame_times[-1])
 
     return notes_sequence, prominent_freq_hz, durations
 
+# Convert audio and features to PyTorch tensors
+def audio_to_tensor(y, sr, features):
+    # Convert waveform to tensor
+    y_tensor = torch.tensor(y, dtype=torch.float32)
+    
+    # Spectrogram conversion
+    spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=512, n_mels=128)
+    spectrogram_db = librosa.power_to_db(spectrogram, ref=np.max)
+    spectrogram_tensor = torch.tensor(spectrogram_db, dtype=torch.float32)
+    
+    # Feature tensor
+    feature_tensor = torch.tensor([features['duration'], features['spectral_centroid']], dtype=torch.float32)
+    
+    return y_tensor, spectrogram_tensor, feature_tensor
+
+# Main execution
 if __name__ == "__main__":
     file_path = "mp3-files/sample-test-1.mp3"
     
-    # Analyze audio and extract features
     y, sr, result = analyze_audio(file_path)
     print(f"Duration: {result['duration']} seconds")
-    print(f"Spectral Centroid (mean): {result['spectral_centroid'].mean()}")
+    print(f"Spectral Centroid (mean): {result['spectral_centroid']:.2f}")
     
-    # Perform Harmonic-Percussive Separation (HPSS)
-    y_harmonic, y_percussive = harmonic_percussive_separation(y,sr)
+    y_harmonic, y_percussive = harmonic_percussive_separation(y, sr)
     
-    # Extract notes from the harmonic component (melody/vocals)
     notes_sequence, freq_sequence, durations = extract_notes_in_sequence(y_harmonic, sr)
     
     print("Sequential Notes (in order of appearance):")
     for note, dur in zip(notes_sequence, durations):
         print(f"{note}: {dur:.2f} sec")
     
-    # Play the harmonic (melodic) component
     print("Playing harmonic (melodic) part...")
     play_audio(y_harmonic, sr)
+    
+    # Convert to tensors
+    y_tensor, spectrogram_tensor, feature_tensor = audio_to_tensor(y, sr, result)
+    print("Tensor shapes:")
+    print(f"Waveform Tensor: {y_tensor.shape}")
+    print(f"Spectrogram Tensor: {spectrogram_tensor.shape}")
+    print(f"Feature Tensor: {feature_tensor.shape}")
