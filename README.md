@@ -15,4 +15,8 @@ Separating vocals from song.
 **Testing Commands**
 -------------
 Encoding test `.gp5` file.
-`python simplified_dadagp.py encode examples/ed_sheeran-perfect_pro.gp5 ed_sheeran-perfect_pro.txt ed-sheeran`
+
+
+`python dadagp.py encode examples/ed_sheeran-supermarket_flowers.gp5 examples/ed_sheeran-supermarket_flowers.txt ed-sheeran`
+
+`python simplified_dadagp.py encode examples/ed_sheeran-supermarket_flowers.gp5 examples/ed_sheeran-supermarket_flowers.txt ed-sheeran`
