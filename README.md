@@ -1,7 +1,3 @@
-Here’s a cleaner, more structured README for your **Guitar Tab Transformer** project:
-
----
-
 # 🎸 Guitar Tab Transformer  
 
 A tool for converting **Guitar Pro files (.gp5)** into a **tokenized** format and vice versa. Also includes audio processing utilities for isolating vocals.
