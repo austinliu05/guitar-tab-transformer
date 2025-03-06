@@ -499,28 +499,14 @@ def oops_theres_a_note_here(new_event, events_this_measure, verbose=False):
                     verbose and print(event,new_event)
                     return False
                 if(new_event["type"]=="note"):
-                    # I am trying to insert a note. 
-                    if(event["instrument_prefix"]=="drums"): 
-                        # Ignore drum strings for now.
-                        # With drums, fret == midinumber. 
-                        # But you can't have two drums of the same midinumber. 
-                        # HMM: I think you can only have 6 simultaneous drums max. 
-                        # That's okay. Just leave the extra drums if they exist.. deal with it when rebuilding GP file.
-                        if(event["fret"]==new_event["fret"]):
-                            # This drum is already being played
-                            verbose and print("This drum note is already being played. Ignore my note.")
-                            verbose and print(event,new_event)
-                            return False
+                    if(new_event["string"]==event["string"]):
+                        # There's already a note on this string. Ignore my note.
+                        verbose and print("There's already a note on this string. Ignore my note.")
+                        verbose and print(event,new_event)
+                        return False
                     else:
-                        # Melodic instruments can only have one note per string
-                        if(new_event["string"]==event["string"]):
-                            # There's already a note on this string. Ignore my note.
-                            verbose and print("There's already a note on this string. Ignore my note.")
-                            verbose and print(event,new_event)
-                            return False
-                        else:
-                            # Don't return true yet. There could still be a note on this string.
-                            pass
+                        # Don't return true yet. There could still be a note on this string.
+                        pass
             elif event["type"]=="rest":
                 # Found a rest 
                 if(new_event["type"]=="note"):
@@ -825,7 +811,8 @@ def guitarpro2tokens(song, artist, verbose=False):
 
     head_tokens = [artist, downtune_token, tempo_token, "start"]
     
-    tunings = []
+    tunings = ["Order of strings: (1,2,3,4,5,6)"]
+    
     scientific_pitch_tuning = f"spn_tuning:{strings}"
     tunings.append(scientific_pitch_tuning)
         
@@ -1017,17 +1004,14 @@ def guitarpro2tokens(song, artist, verbose=False):
         if(e["type"]=="note" or e["type"]=="rest"):   
             effects = []
             if(e["type"]=="note"):
-                # note has effects. append them after the note
+                tuning_for_string = strings[e["string"] - 1]  # Assuming 1-based index                # note has effects. append them after the note
                 effects = e["effects"]
                 #del e["start"]
                 del e["effects"]
                 # append the NOTE  token
                 #w_events.append(e)
-                if(e["instrument_prefix"]=="drums"):
-                    # Ignore strings for drums. Rebuild the strings later. 
-                    body_tokens.append("drums:note:%s" % e["fret"])
-                else:
-                    body_tokens.append("%s:note:s%s:f%s" % (e["instrument_prefix"], e["string"], e["fret"]))
+                body_tokens.append(f"{e['instrument_prefix']}:note:s{e['string']}:f{e['fret']}:{tuning_for_string}")
+
                 if(len(effects)>0):
                     # append the NOTE EFFECTS
                     body_tokens.extend(effects)
