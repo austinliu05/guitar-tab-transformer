@@ -38,10 +38,11 @@ demucs --two-stems=vocals mp3-files/sample-test-1.mp3
 ## 🎼 Encoding & Decoding Guitar Pro Files
 
 ### **🔹 Encode a Guitar Pro (.gp5) file into tokens**
+This is the original dada.py file
 ```bash
 python dadagp.py encode examples/ed_sheeran-supermarket_flowers.gp5 examples/ed_sheeran-supermarket_flowers.txt ed-sheeran
 ```
-or (for a simplified version):
+This is the simpolified version, simpified for GTT purposes.
 ```bash
 python simplified_dadagp.py encode examples/ed_sheeran-supermarket_flowers.gp5 examples/ed_sheeran-supermarket_flowers.txt ed-sheeran
 ```
