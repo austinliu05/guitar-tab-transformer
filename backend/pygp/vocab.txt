@@ -1,0 +1,86 @@
+token_splitter.py
+```
+wait
+    ##:1
+    ##:2
+    ##:4
+    ##:8
+    ##:16
+    ##:32
+    ##:40
+    ##:60
+    ##:64
+    ##:80
+    ##:120
+    ##:128
+    ##:160
+    ##:180
+    ##:192
+    ##:240
+    ##:256
+    ##:320
+    ##:360
+    ##:3840
+    ##:480
+    ##:512
+    ##:640
+    ##:720
+    ##:960
+    ##:1024
+    ##:1440
+    ##:1920
+    ##:2048
+    ##:2880
+    ##:4096
+    ##:8192
+    ##:16384
+
+    ##param
+
+new_measure
+measure:triplet_feel
+measure:repeat_open
+measure:repeat_close
+measure:direction
+measure:from_direction
+measure:repeat_alternative
+bfx:fade_in
+bfx:has_rasgueado
+bfx:vibrato
+bfx:pick_stroke
+bfx:stroke
+bfx:slap_effect
+bfx:tremolo_bar:type
+    ##:pos
+    ##:val
+    ##:vib
+bfx:tempo_change
+nfx:tie
+nfx:dead
+nfx:accentuated_note
+nfx:ghost_note
+nfx:hammer
+nfx:heavy_accentuated_note
+nfx:let_ring
+nfx:palm_mute
+nfx:staccato
+nfx:vibrato
+nfx:bend:type
+nfx:grace
+    ##:fret
+    ##:duration
+    ##:dead
+    ##:beat
+    ##:transition
+nfx:harmonic
+    ##:pitch
+    ##:octave
+nfx:slide
+nfx:tremoloPicking:duration
+nfx:trill:fret
+
+note
+    ##:s
+    ##:f
+    ##:rest
+
