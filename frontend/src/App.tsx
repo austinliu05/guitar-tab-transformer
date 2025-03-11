@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import NoteheadBlog from './pages/NoteheadBlog';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer'
+import TeamPage from './pages/TeamPage';
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
         <Route 
           path="/blog/notehead-classification" 
           element={<NoteheadBlog/>} 
+        />
+          <Route 
+          path="/team" 
+          element={<TeamPage/>} 
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
