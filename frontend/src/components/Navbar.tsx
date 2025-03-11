@@ -29,6 +29,13 @@ const CustomNavbar: React.FC = () => {
                         >
                             Home
                         </Nav.Link>
+                        <Nav.Link 
+                            as={Link} 
+                            to="/team" 
+                            className={location.pathname === '/team' ? "active-link" : ""}
+                        >
+                            Team
+                        </Nav.Link>
                         <NavDropdown title="Previous Works" id="previous-works-dropdown">
                             <NavDropdown.Item 
                                 target="_blank" 
