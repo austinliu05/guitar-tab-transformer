@@ -4,7 +4,7 @@ import '../styles/TeamPage.scss';
 
 const teamMembers = [
     {
-        name: "Austin Chen",
+        name: "Austin Liu",
         school: "Brown University",
         bio: "Austin is a dual-degree student in Applied-Math Computer Science and Economics.",
         image: `${process.env.PUBLIC_URL}/assets/images/placeholder.png`
