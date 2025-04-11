@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import CustomNavbar from './components/Navbar';
 import Home from './pages/Home';
+import NoteheadBlog from './pages/NoteheadBlog';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer'
+
 function App() {
   return (
     <div className="App">
@@ -10,8 +12,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/binary-classification" />
-        <Route path="/multiclass-classification" />
+        <Route 
+          path="/blog/notehead-classification" 
+          element={<NoteheadBlog/>} 
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
