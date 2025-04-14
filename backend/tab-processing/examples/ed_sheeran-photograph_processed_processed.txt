@@ -419,7 +419,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -462,7 +461,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -504,7 +502,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -544,7 +541,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -584,7 +580,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -624,7 +619,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -664,7 +658,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -704,7 +697,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -744,7 +736,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -787,7 +778,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -829,7 +819,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -869,7 +858,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -909,7 +897,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -949,7 +936,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -989,7 +975,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -1029,7 +1014,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -1069,7 +1053,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -1109,7 +1092,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -1149,7 +1131,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -1192,7 +1173,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -1232,7 +1212,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -1272,7 +1251,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -1312,7 +1290,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -1358,13 +1335,11 @@ nfx:palm_mute
 note:s6:f7:E3
 nfx:let_ring
 nfx:palm_mute
-rest
 wait:3840
 new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -1407,7 +1382,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -1449,7 +1423,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -1489,7 +1462,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -1529,7 +1501,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -1569,7 +1540,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -1609,7 +1579,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -1652,7 +1621,6 @@ note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:let_ring
 nfx:palm_mute
-rest
 wait:3840
 new_measure
 note:s6:f0:E3
@@ -1753,7 +1721,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -1796,7 +1763,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -1838,7 +1804,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -1878,7 +1843,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -1918,7 +1882,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -1958,7 +1921,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -1998,7 +1960,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -2038,7 +1999,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -2078,7 +2038,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -2121,7 +2080,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -2163,7 +2121,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -2203,7 +2160,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -2243,7 +2199,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -2283,7 +2238,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -2323,7 +2277,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -2363,7 +2316,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -2403,7 +2355,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -2443,7 +2394,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -2483,7 +2433,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -2526,7 +2475,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -2566,7 +2514,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -2606,7 +2553,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -2646,7 +2592,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -2692,7 +2637,6 @@ nfx:palm_mute
 note:s6:f7:E3
 nfx:let_ring
 nfx:palm_mute
-rest
 wait:3840
 new_measure
 note:s6:f0:E3
@@ -6144,7 +6088,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -6187,7 +6130,6 @@ new_measure
 note:s6:f0:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f0:E3
 nfx:palm_mute
@@ -6229,7 +6171,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -6269,7 +6210,6 @@ new_measure
 note:s6:f7:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f7:E3
 nfx:palm_mute
@@ -6309,7 +6249,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -6349,7 +6288,6 @@ new_measure
 note:s6:f9:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f9:E3
 nfx:palm_mute
@@ -6389,7 +6327,6 @@ new_measure
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 note:s6:f5:E3
 nfx:palm_mute
@@ -6431,7 +6368,6 @@ nfx:heavy_accentuated_note
 note:s6:f5:E3
 nfx:heavy_accentuated_note
 nfx:palm_mute
-rest
 wait:480
 rest
 wait:480

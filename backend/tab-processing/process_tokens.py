@@ -3,29 +3,34 @@ from typing import List, Union
 import os
 
 def sort_notes(pruned_notes: List[str]):
-    # Define a key function for sorting
+    # Define a key function for sorting based on "s<number>:" in the token.
     def extract_s_number(s):
         match = re.search(r's(\d+):', s)
-        # If the pattern isn’t found, return inf so that token appears last.
+        # If not found, push token to the end.
         return int(match.group(1)) if match else float('inf')
-    # Return the list sorted by the extracted number
+    # Return the list sorted by the extracted number.
     sorted_notes = sorted(pruned_notes, key=extract_s_number)
     return sorted_notes
 
 def merge_tracks_and_prune(notes: List[str]):
     processed_notes = []
+    has_rest = False 
+    
     for token in notes:
-        if token.startswith("clean0"):
-            processed_notes.append(token.replace("clean0:", ""))
+        # Remove any track prefix ("clean0:" or "clean1:" etc).
+        cleaned_token = re.sub(r"clean\d+:", "", token)
+        
+        if cleaned_token == "rest":
+            # If we haven't already added a rest token for this group, add it.
+            if not has_rest:
+                processed_notes.append("rest")
+                has_rest = True
         else:
-            if token.endswith("rest"):
-                continue
-            else:
-                processed_notes.append(re.sub(r"clean\d+:", "", token))
+            processed_notes.append(cleaned_token)
+    
     return sort_notes(processed_notes)
 
 def process_raw_acoustic_solo_tokens(tokens: Union[str, List[str]]):
-    # If tokens is a filename, read the file and split it into non-empty lines.
     if isinstance(tokens, str):
         try:
             with open(tokens, 'r') as f:
@@ -33,7 +38,8 @@ def process_raw_acoustic_solo_tokens(tokens: Union[str, List[str]]):
         except FileNotFoundError:
             raise ValueError("Please provide either encoded tokens or the path to the token file")
     
-    # Split the tokens into header, body, and footer. (Assuming the file contains "start" and "end" markers.)
+    # Split tokens into header, body, and footer.
+    # (Assuming the file contains "start" and "end" markers.)
     header = []
     body = []
     footer = []
@@ -49,12 +55,13 @@ def process_raw_acoustic_solo_tokens(tokens: Union[str, List[str]]):
         elif in_body:
             body.append(token)
         else:
+            # Tokens before "start" go to header; tokens after "end" go to footer.
             if not in_body:
                 header.append(token)
             else:
                 footer.append(token)
     
-    # Process the body tokens by grouping consecutive tokens that start with "clean"
+    # Process body tokens by grouping consecutive tokens that start with "clean"
     processed_body = []
     current_group = []
 
@@ -72,7 +79,7 @@ def process_raw_acoustic_solo_tokens(tokens: Union[str, List[str]]):
         merged = merge_tracks_and_prune(current_group)
         processed_body.extend(merged)
     
-    # Return the reassembled list of tokens: header, processed body, then footer.
+    # Reassemble header, processed body, and footer.
     return header + processed_body + footer
 
 def main():
@@ -90,11 +97,11 @@ def main():
                 try:
                     processed_tokens = process_raw_acoustic_solo_tokens(filepath)
                     
+                    # Create a new filename by appending "_processed" to the original name.
                     name, ext = os.path.splitext(filename)
                     new_filename = f"{name}_processed{ext}"
                     new_filepath = os.path.join(examples_folder, new_filename)
                     
-                    # Write the processed tokens to the new file.
                     with open(new_filepath, 'w') as outfile:
                         outfile.write("\n".join(processed_tokens))
                     
