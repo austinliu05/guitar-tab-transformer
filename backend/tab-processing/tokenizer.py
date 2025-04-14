@@ -1,16 +1,34 @@
 from tokenizers import ByteLevelBPETokenizer
 from pathlib import Path
 
-# Define paths to your text files
-paths = [str(x) for x in Path("../examples").glob("**/*.txt")]
+token_files_dir = Path("./examples")
 
-# Initialize the tokenizer
+paths = [str(x) for x in token_files_dir.glob("**/*.txt")]
+
+print(f"Found {len(paths)} token file(s) for training.")
+
+# Initialize the tokenizer (we're using ByteLevelBPETokenizer for fine-grained tokenization)
 tokenizer = ByteLevelBPETokenizer()
 
 # Train the tokenizer
-tokenizer.train(files=paths, vocab_size=52000, min_frequency=2, special_tokens=[
-    "<s>", "<pad>", "</s>", "<unk>", "<mask>"
-])
+tokenizer.train(
+    files=paths,
+    vocab_size=52000,
+    min_frequency=2,
+    special_tokens=[
+        "start",   # marks the beginning of the token sequence in your file
+        "end",     # marks the end
+        "new_measure",  # indicates a new measure/bar in the music
+        "rest",     # used for rests; reserving it avoids duplications from overlapping tracks
+        "note",
+        "nfx"
+    ]
+)
 
-# Save the vocab.json and merges.txt files
-tokenizer.save_model("output_directory", "tokenizer_name")
+output_dir = Path("./vocabs")
+output_dir.mkdir(exist_ok=True)
+
+tokenizer.save_model(str(output_dir), "vocab")
+
+print(
+    f"Tokenizer training complete. Vocabulary and merges saved to: {output_dir}")
