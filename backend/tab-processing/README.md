@@ -21,29 +21,10 @@ pip install 'PyGuitarPro==0.6'
 
 #### ENCODE (guitar pro --> tokens)
 ```
-python dadagp.py encode input.gp3 output.txt [artist_name]
-python dadagp.py encode examples/progmetal.gp3 progmetal.tokens.txt unknown
+python simplified_dadagp.py encode examples/input.gp3 output.txt [artist_name]
 ```
 
 #### DECODE (tokens --> guitar pro)
 ```
-python dadagp.py decode input.txt output.gp5
-python dadagp.py decode progmetal.tokens.txt progmetal.decoded.gp5
+python simplified_dadagp.py decode examples/input.txt output.gp5
 ```
-
-Note:
-* only gp3, gp4, gp5 files are supported by the encoder;
-* rare combinations of instruments and tunings may not be supported;
-* banjo is not supported;
-* instrument-change events are not supported;
-
-## How to Cite
-```
-@inproceedings{dadagp2021,
-  author = {Sarmento, Pedro and Kumar, Adarsh and Carr, CJ and Zukowski, Zack and Barthet, Mathieu and Yang, Yi-Hsuan},
-  booktitle = {Proceedings of the 22nd International Society for Music Information Retrieval Conference},
-  title = {{DadaGP: a Dataset of Tokenized GuitarPro Songs for Sequence Models}},
-  url = {https://archives.ismir.net/ismir2021/paper/000076.pdf},
-  year = {2021}
-}
-
