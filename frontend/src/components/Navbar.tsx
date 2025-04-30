@@ -29,7 +29,14 @@ const CustomNavbar: React.FC = () => {
                         >
                             Home
                         </Nav.Link>
-                        <NavDropdown title="Previous Works" id="previous-works-dropdown">
+                        <Nav.Link 
+                            as={Link} 
+                            to="/team" 
+                            className={location.pathname === '/team' ? "active-link" : ""}
+                        >
+                            Team
+                        </Nav.Link>
+                        {/* <NavDropdown title="Previous Works" id="previous-works-dropdown">
                             <NavDropdown.Item 
                                 target="_blank" 
                                 href='https://www.kaggle.com/code/apoxieforest/gtt-intro-preprocessing'
@@ -54,7 +61,7 @@ const CustomNavbar: React.FC = () => {
                             >
                                 Notehead Classification
                             </NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
