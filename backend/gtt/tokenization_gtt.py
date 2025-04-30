@@ -1,15 +1,15 @@
 import collections
-import json
 import os
-from dataclasses import dataclass
-from typing import List, Union
+from typing import List, Union, Optional, Tuple
+from transformers.utils import logging
 
-from transformers.models.bert.tokenization_bert import load_vocab, whitespace_tokenize, WordpieceTokenizer
+logger = logging.get_logger(__name__)
+
+VOCAB_FILES_NAMES = {"vocab_file": "vocab.txt"}
+
+from transformers.models.bert.tokenization_bert import load_vocab, WordpieceTokenizer
 from transformers.tokenization_utils import PreTrainedTokenizer
-from transformers.utils import ModelOutput
 
-# @dataclass
-# class GttTokenizerOutput():
 
 def raw_tokens_to_text(tokens: Union[List[str], str]) -> str:
     if isinstance(tokens, str):
@@ -27,10 +27,9 @@ class GttTokenizer(PreTrainedTokenizer):
         self,
         vocab_file,
         unk_token="[UNK]",
-        rsep_token="[RSEP]",
-        msep_token ="[MSEP]",
+        sep_token="[SEP]",
         cls_token="[CLS]",
-        pad_token="<pad>",
+        pad_token="[PAD]",
         mask_token="[MASK]",
         **kwargs
     ):
@@ -47,8 +46,7 @@ class GttTokenizer(PreTrainedTokenizer):
         self.wordpiece_tokenizer = WordpieceTokenizer(vocab=self.vocab, unk_token=str(unk_token))
         super().__init__(
             unk_token=unk_token,
-            rsep_token=rsep_token,
-            msep_token=msep_token,
+            sep_token=sep_token,
             pad_token=pad_token,
             cls_token=cls_token,
             mask_token=mask_token,
@@ -73,3 +71,39 @@ class GttTokenizer(PreTrainedTokenizer):
         else:
             split_tokens = self.wordpiece_tokenizer.tokenize(text)
         return split_tokens
+
+    def _convert_token_to_id(self, token):
+        """Converts a token (str) in an id using the vocab."""
+        return self.vocab.get(token, self.vocab.get(self.unk_token))
+
+    def _convert_id_to_token(self, index):
+        """Converts an index (integer) in a token (str) using the vocab."""
+        return self.ids_to_tokens.get(index, self.unk_token)
+
+    def convert_tokens_to_string(self, tokens):
+        """Converts a sequence of tokens (string) in a single string."""
+        out_string = " ".join(tokens).replace(" ##", "").strip()
+        return out_string
+
+    def save_vocabulary(self, save_directory: str, filename_prefix: Optional[str] = None) -> Tuple[str]:
+        index = 0
+        if os.path.isdir(save_directory):
+            vocab_file = os.path.join(
+                save_directory, (filename_prefix + "-" if filename_prefix else "") + VOCAB_FILES_NAMES["vocab_file"]
+            )
+        else:
+            vocab_file = (filename_prefix + "-" if filename_prefix else "") + save_directory
+        with open(vocab_file, "w", encoding="utf-8") as writer:
+            for token, token_index in sorted(self.vocab.items(), key=lambda kv: kv[1]):
+                if index != token_index:
+                    logger.warning(
+                        f"Saving vocabulary to {vocab_file}: vocabulary indices are not consecutive."
+                        " Please check that the vocabulary is not corrupted!"
+                    )
+                    index = token_index
+                writer.write(token + "\n")
+                index += 1
+        return (vocab_file,)
+
+
+
