@@ -11,17 +11,6 @@ from transformers.models.bert.tokenization_bert import load_vocab, WordpieceToke
 from transformers.tokenization_utils import PreTrainedTokenizer
 
 
-def raw_tokens_to_text(tokens: Union[List[str], str]) -> str:
-    if isinstance(tokens, str):
-        if not os.path.exists(tokens):
-            raise ValueError(f"File {tokens} does not exist.")
-        else:
-            with open(tokens, "r") as f:
-                tokens = [t.strip() for t in f.readlines()]
-
-    return " ".join(tokens)
-
-
 class GttTokenizer(PreTrainedTokenizer):
     def __init__(
         self,
@@ -57,19 +46,12 @@ class GttTokenizer(PreTrainedTokenizer):
     def vocab_size(self):
         return len(self.vocab)
 
+    def get_vocab(self):
+        return dict(self.vocab, **self.added_tokens_encoder)
+
     def _tokenize(self, text, split_special_tokens=False):
-        split_tokens = []
-        if self.do_basic_tokenize:
-            for token in self.basic_tokenizer.tokenize(
-                text, never_split=self.all_special_tokens if not split_special_tokens else None
-            ):
-                # If the token is part of the never_split set
-                if token in self.basic_tokenizer.never_split:
-                    split_tokens.append(token)
-                else:
-                    split_tokens += self.wordpiece_tokenizer.tokenize(token)
-        else:
-            split_tokens = self.wordpiece_tokenizer.tokenize(text)
+        # split_tokens = []
+        split_tokens = self.wordpiece_tokenizer.tokenize(text)
         return split_tokens
 
     def _convert_token_to_id(self, token):
@@ -104,6 +86,5 @@ class GttTokenizer(PreTrainedTokenizer):
                 writer.write(token + "\n")
                 index += 1
         return (vocab_file,)
-
 
 
