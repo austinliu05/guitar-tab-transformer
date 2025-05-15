@@ -1,8 +1,3 @@
-ed-sheeran
-downtune:-1
-tempo:90
-start
-new_measure
 note:s1:f3
 note:s2:f3
 note:s3:f0
@@ -13,13 +8,11 @@ note:s2:f3
 note:s3:f4
 note:s5:f2
 wait:1920
-new_measure
 note:s1:f0
 note:s2:f1
 note:s3:f0
 note:s5:f3
 wait:3840
-new_measure
 note:s6:f3
 wait:480
 note:s3:f0
@@ -38,7 +31,6 @@ note:s2:f3
 wait:480
 note:s3:f4
 wait:480
-new_measure
 note:s1:f0
 note:s2:f1
 note:s3:f0
@@ -51,7 +43,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:240
-new_measure
 note:s2:f0
 note:s6:f3
 wait:480
@@ -74,7 +65,6 @@ wait:120
 note:s3:f2
 nfx:slide:-2
 wait:720
-new_measure
 note:s3:f2
 nfx:hammer
 note:s5:f3
@@ -90,7 +80,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:240
-new_measure
 note:s2:f0
 note:s6:f3
 wait:480
@@ -112,10 +101,8 @@ note:s3:f0
 wait:240
 note:s3:f0
 wait:480
-new_measure
 note:s5:f3
 wait:3840
-new_measure
 note:s6:f0
 wait:360
 rest
@@ -146,7 +133,6 @@ wait:512
 wait:16
 wait:8
 wait:4
-new_measure
 note:s3:f0
 note:s5:f3
 wait:480
@@ -164,7 +150,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:720
-new_measure
 note:s2:f0
 note:s5:f3
 wait:960
@@ -187,7 +172,6 @@ note:s3:f0
 wait:360
 rest
 wait:60
-new_measure
 note:s6:f3
 wait:2880
 rest
@@ -202,7 +186,6 @@ wait:256
 wait:32
 wait:8
 wait:4
-new_measure
 note:s2:f0
 note:s6:f3
 wait:480
@@ -225,7 +208,6 @@ wait:120
 note:s3:f2
 nfx:slide:-2
 wait:720
-new_measure
 note:s3:f2
 nfx:hammer
 note:s5:f3
@@ -241,7 +223,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:240
-new_measure
 note:s2:f0
 note:s6:f3
 wait:480
@@ -263,10 +244,8 @@ note:s3:f0
 wait:240
 note:s3:f0
 wait:480
-new_measure
 note:s5:f3
 wait:3840
-new_measure
 note:s6:f0
 wait:360
 rest
@@ -297,7 +276,6 @@ wait:512
 wait:16
 wait:8
 wait:4
-new_measure
 note:s3:f0
 note:s5:f3
 wait:480
@@ -315,7 +293,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:720
-new_measure
 note:s2:f0
 note:s5:f3
 wait:960
@@ -338,7 +315,6 @@ note:s3:f0
 wait:360
 rest
 wait:60
-new_measure
 note:s6:f3
 wait:2880
 note:s5:f0
@@ -346,7 +322,6 @@ nfx:dead
 note:s6:f0
 nfx:dead
 wait:960
-new_measure
 note:s5:f0
 wait:480
 note:s1:f0
@@ -385,7 +360,6 @@ wait:480
 note:s2:f0
 note:s6:f3
 wait:480
-new_measure
 rest
 wait:480
 note:s3:f0
@@ -406,7 +380,6 @@ wait:120
 note:s3:f0
 wait:240
 note:s4:f4
-bfx:slap_effect:1
 wait:120
 note:s5:f0
 nfx:dead
@@ -415,7 +388,6 @@ nfx:dead
 wait:480
 note:s3:f0
 wait:480
-new_measure
 note:s5:f0
 wait:480
 note:s1:f0
@@ -454,7 +426,6 @@ wait:480
 note:s2:f0
 note:s6:f3
 wait:480
-new_measure
 rest
 wait:480
 note:s2:f1
@@ -477,7 +448,6 @@ wait:120
 note:s3:f0
 wait:240
 note:s4:f4
-bfx:slap_effect:1
 wait:120
 note:s5:f0
 nfx:dead
@@ -486,7 +456,6 @@ nfx:dead
 wait:480
 note:s3:f0
 wait:480
-new_measure
 note:s3:f0
 note:s6:f3
 wait:480
@@ -518,7 +487,6 @@ nfx:dead
 wait:480
 note:s5:f0
 wait:480
-new_measure
 note:s5:f3
 wait:480
 note:s3:f2
@@ -552,7 +520,6 @@ nfx:dead
 wait:480
 note:s4:f0
 wait:480
-new_measure
 note:s3:f0
 note:s6:f3
 wait:480
@@ -584,7 +551,6 @@ nfx:dead
 wait:480
 note:s5:f0
 wait:480
-new_measure
 note:s5:f3
 wait:480
 note:s3:f2
@@ -618,7 +584,6 @@ nfx:dead
 wait:480
 note:s4:f0
 wait:480
-new_measure
 note:s3:f0
 note:s6:f0
 wait:480
@@ -650,7 +615,6 @@ nfx:dead
 wait:480
 note:s2:f3
 wait:480
-new_measure
 note:s6:f3
 wait:480
 note:s2:f1
@@ -669,7 +633,6 @@ note:s4:f0
 wait:960
 note:s3:f0
 nfx:grace:fret2
-param:duration32:dead0:beat0:transition0
 wait:480
 note:s3:f0
 nfx:ghost_note
@@ -678,7 +641,6 @@ nfx:dead
 note:s6:f0
 nfx:dead
 wait:960
-new_measure
 note:s2:f0
 note:s6:f0
 wait:960
@@ -693,7 +655,6 @@ note:s3:f0
 wait:480
 note:s5:f3
 wait:480
-new_measure
 note:s2:f0
 note:s6:f3
 wait:960
@@ -714,7 +675,6 @@ note:s3:f0
 wait:360
 note:s3:f0
 wait:480
-new_measure
 note:s6:f3
 wait:480
 note:s3:f0
@@ -733,7 +693,6 @@ note:s2:f3
 wait:480
 note:s3:f4
 wait:480
-new_measure
 note:s1:f0
 note:s2:f1
 note:s3:f0
@@ -751,7 +710,6 @@ note:s2:f3
 wait:480
 note:s4:f0
 wait:480
-new_measure
 note:s6:f3
 wait:480
 note:s3:f0
@@ -770,7 +728,6 @@ note:s2:f3
 wait:480
 note:s3:f4
 wait:480
-new_measure
 note:s1:f0
 note:s2:f1
 note:s3:f0
@@ -783,7 +740,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:240
-new_measure
 note:s2:f0
 note:s6:f3
 wait:480
@@ -806,7 +762,6 @@ wait:120
 note:s3:f2
 nfx:slide:-2
 wait:720
-new_measure
 note:s3:f2
 nfx:hammer
 note:s5:f3
@@ -822,7 +777,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:240
-new_measure
 note:s2:f0
 note:s6:f3
 wait:480
@@ -844,10 +798,8 @@ note:s3:f0
 wait:240
 note:s3:f0
 wait:480
-new_measure
 note:s5:f3
 wait:3840
-new_measure
 note:s6:f0
 wait:360
 rest
@@ -878,7 +830,6 @@ wait:512
 wait:16
 wait:8
 wait:4
-new_measure
 note:s3:f0
 note:s5:f3
 wait:480
@@ -896,7 +847,6 @@ nfx:hammer
 wait:240
 note:s3:f2
 wait:720
-new_measure
 note:s2:f0
 note:s5:f3
 wait:960
@@ -919,7 +869,6 @@ note:s3:f0
 wait:360
 rest
 wait:60
-new_measure
 note:s6:f3
 wait:2880
 note:s5:f0
@@ -927,7 +876,6 @@ nfx:dead
 note:s6:f0
 nfx:dead
 wait:960
-new_measure
 note:s5:f0
 wait:480
 note:s1:f0
@@ -966,7 +914,6 @@ wait:480
 note:s2:f0
 note:s6:f3
 wait:480
-new_measure
 rest
 wait:480
 note:s3:f0
@@ -987,7 +934,6 @@ wait:120
 note:s3:f0
 wait:240
 note:s4:f4
-bfx:slap_effect:1
 wait:120
 note:s5:f0
 nfx:dead
@@ -996,7 +942,6 @@ nfx:dead
 wait:480
 note:s3:f0
 wait:480
-new_measure
 note:s5:f0
 wait:480
 note:s1:f0
@@ -1035,7 +980,6 @@ wait:480
 note:s2:f0
 note:s6:f3
 wait:480
-new_measure
 rest
 wait:480
 note:s2:f1
@@ -1058,7 +1002,6 @@ wait:120
 note:s3:f0
 wait:240
 note:s4:f4
-bfx:slap_effect:1
 wait:120
 note:s5:f0
 nfx:dead
@@ -1067,7 +1010,6 @@ nfx:dead
 wait:480
 note:s3:f0
 wait:480
-new_measure
 note:s3:f0
 note:s6:f3
 wait:480
@@ -1099,7 +1041,6 @@ nfx:dead
 wait:480
 note:s5:f0
 wait:480
-new_measure
 note:s5:f3
 wait:480
 note:s3:f2
@@ -1133,7 +1074,6 @@ nfx:dead
 wait:480
 note:s4:f0
 wait:480
-new_measure
 note:s3:f0
 note:s6:f3
 wait:480
@@ -1165,7 +1105,6 @@ nfx:dead
 wait:480
 note:s5:f0
 wait:480
-new_measure
 note:s5:f3
 wait:480
 note:s3:f2
@@ -1199,7 +1138,6 @@ nfx:dead
 wait:480
 note:s4:f0
 wait:480
-new_measure
 note:s3:f0
 note:s6:f0
 wait:480
@@ -1231,7 +1169,6 @@ nfx:dead
 wait:480
 note:s2:f3
 wait:480
-new_measure
 note:s6:f3
 wait:480
 note:s2:f1
@@ -1250,7 +1187,6 @@ note:s4:f0
 wait:960
 note:s3:f0
 nfx:grace:fret2
-param:duration32:dead0:beat0:transition0
 wait:480
 note:s3:f0
 nfx:ghost_note
@@ -1259,7 +1195,6 @@ nfx:dead
 note:s6:f0
 nfx:dead
 wait:960
-new_measure
 note:s2:f0
 note:s6:f0
 wait:960
@@ -1274,7 +1209,6 @@ note:s3:f0
 wait:480
 note:s5:f3
 wait:480
-new_measure
 note:s2:f0
 note:s6:f3
 wait:960
@@ -1295,7 +1229,5 @@ note:s3:f0
 wait:360
 note:s3:f0
 wait:480
-new_measure
 note:s6:f3
 wait:3840
-end

@@ -65,25 +65,40 @@ def process_raw_acoustic_solo_tokens(tokens: Union[str, List[str]]):
     processed_body = []
     current_group = []
 
+    prefixes = ("note", "bfs", "nfx", "wait")
     for token in body:
+        # Group any 'clean' tracks
         if token.startswith("clean"):
             current_group.append(token)
-        else:
-            if current_group:
-                merged = merge_tracks_and_prune(current_group)
-                processed_body.extend(merged)
-                current_group = []
-            processed_body.append(token)
+            continue
+
+        # Skip tokens that don't start with one of the desired prefixes
+        if not token.startswith(prefixes):
+            continue
+
+        # Flush and merge any pending 'clean' group
+        if current_group:
+            merged = merge_tracks_and_prune(current_group)
+            processed_body.extend(merged)
+            current_group = []
+
+        processed_body.append(token)
     
     if current_group:
         merged = merge_tracks_and_prune(current_group)
         processed_body.extend(merged)
     
     # Reassemble header, processed body, and footer.
-    return header + processed_body + footer
+    # return header + processed_body + footer
+    return processed_body
 
 def main():
     examples_folder = "examples"
+    for fname in os.listdir(examples_folder):
+        if "processed" in fname:
+            path = os.path.join(examples_folder, fname)
+            if os.path.isfile(path):
+                os.remove(path)
     if not os.path.isdir(examples_folder):
         print(f"The folder '{examples_folder}' does not exist.")
         return
