@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 import argparse
 from tokenizers import ByteLevelBPETokenizer
-
+import json
 
 def train_wordpiece(paths, output_dir):
     tokenizer = Tokenizer(models.WordPiece(unk_token="[UNK]"))
@@ -14,8 +14,8 @@ def train_wordpiece(paths, output_dir):
         Whitespace()
     ])
     trainer = WordPieceTrainer(
-        vocab_size=52000,
-        min_frequency=1,
+        vocab_size=1000,
+        min_frequency=2,
         special_tokens=["[UNK]", "rest", "wait", "note", "bfs", "nfx"]
     )
 
@@ -27,14 +27,29 @@ def train_bpe(paths, output_dir):
     bpe = ByteLevelBPETokenizer()
     bpe.train(
         files=paths,
-        vocab_size=52000,
-        min_frequency=1,
+        vocab_size=1000,
+        min_frequency=2,
         special_tokens=["[UNK]", "rest", "wait", "note", "bfs", "nfx"]
     )
     bpe.save_model(str(output_dir), prefix="bpe")
     print("BPE vocab + merges saved to", output_dir)
+    
+    vocab_path = Path("vocabs/bpe-vocab.json")
 
+    # 1) Load the raw (unsorted) token → ID mapping
+    with open(vocab_path, 'r', encoding='utf-8') as f:
+        vocab = json.load(f)
 
+    # 2) Sort by ID (the values)
+    sorted_vocab = dict(sorted(vocab.items(), key=lambda kv: kv[1]))
+
+    # 3) Write out the sorted mapping
+    output_path = vocab_path.parent / "full_bpe_vocab.json"
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(sorted_vocab, f, indent=2, ensure_ascii=False)
+
+    print(f"Saved complete BPE vocab (sorted) to: {output_path}")
+    
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(

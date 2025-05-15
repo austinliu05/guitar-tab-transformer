@@ -2,7 +2,7 @@ from tokenizers import Tokenizer, models, pre_tokenizers, trainers
 from pathlib import Path
 
 # Locating processed token files
-token_files_dir = Path("./examples")
+token_files_dir = Path("../examples")
 paths = [str(x) for x in token_files_dir.glob("**/*processed.txt")]
 
 # Initialize a WordLevel tokenizer

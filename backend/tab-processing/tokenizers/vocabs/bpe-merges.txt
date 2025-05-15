@@ -83,7 +83,3 @@ g r
 ac e
 fre t
 gr ace
-2 5
-3 2
-14 40
-25 6
