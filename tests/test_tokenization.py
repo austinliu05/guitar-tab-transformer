@@ -17,3 +17,4 @@ def test_tokenizer():
     tokens_str = raw_tokens_to_text(os.path.join(DATA_FOLDER_PATH, "short_gp_tokens.txt"))
     results = tokenizer._tokenize(tokens_str)
     print(results)
+

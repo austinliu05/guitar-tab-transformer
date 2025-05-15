@@ -365,13 +365,6 @@ wait:16384
 ##:8192
 ##:16384
 ##param
-new_measure
-measure:triplet_feel
-measure:repeat_open
-measure:repeat_close
-measure:direction
-measure:from_direction
-measure:repeat_alternative
 bfx:fade_in
 bfx:has_rasgueado
 bfx:vibrato
