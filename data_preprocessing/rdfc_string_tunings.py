@@ -32,5 +32,22 @@ def string_tuning_combinations(data_folder):
         "map": val_tune_dict
     }
 
+tuning_combos = string_tuning_combinations(data_folder)
+
+note_vocabs = []
+
+for i, string in enumerate(tuning_combos["tunings"]):
+    string_idx = i + 1
+    sprefix = f"note:s{str(string_idx)}"
+
+    for fret in range(0, 25):
+        sfprefix = f"{sprefix}:f{str(fret)}"
+        for tune in string:
+            note = f"{sfprefix}:{tune}"
+            note_vocabs.append(note)
+
+with open(os.path.join(data_folder, "note_vocab.txt"), "w") as f:
+    for note in note_vocabs:
+        f.write(note + "\n")
 
 

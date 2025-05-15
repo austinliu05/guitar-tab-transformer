@@ -11,7 +11,7 @@ const timelineData = [
     { 
         date: "03/2025", 
         title: "Starting from Square 1", 
-        description: "After a brief hiatus following Summer 2024, I re-engaged with my passion project when Claude reached out in November 2024 with a similar idea and proposed a collaboration. Claude is currently a researcher specializing in NLP at the University of Virginia. Together, we have built a small database of guitar tabs and encoded them using dataGP files. In process of developing and building the model before tuning it to our needs.", 
+        description: "After a brief hiatus following Summer 2024, I re-engaged with my passion project when Claude reached out in November 2024 with a similar idea and proposed a collaboration. Together, we have built a small database of guitar tabs and encoded them using dataGP files. In process of developing and building the model before tuning it to our needs.", 
         image: "" 
     },
     {
