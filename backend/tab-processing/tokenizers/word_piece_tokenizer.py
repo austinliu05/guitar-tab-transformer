@@ -42,7 +42,7 @@ def main():
         help="Which tokenizer to train"
     )
     args = parser.parse_args()
-    token_files_dir = Path("./examples")
+    token_files_dir = Path("../examples")
     paths = [str(x) for x in token_files_dir.glob("**/*processed.txt")]
     output_dir = Path("./vocabs")
     output_dir.mkdir(exist_ok=True)
