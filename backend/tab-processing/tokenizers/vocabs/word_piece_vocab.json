@@ -63,11 +63,15 @@
     "type": "Sequence",
     "pretokenizers": [
       {
-        "type": "Whitespace"
+        "type": "Split",
+        "pattern": {
+          "String": ":"
+        },
+        "behavior": "Isolated",
+        "invert": false
       },
       {
-        "type": "Punctuation",
-        "behavior": "Isolated"
+        "type": "Whitespace"
       }
     ]
   },

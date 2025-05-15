@@ -1,41 +1,36 @@
-from tokenizers import Tokenizer, models, pre_tokenizers
+from tokenizers import Tokenizer, models
 from tokenizers.trainers import WordPieceTrainer
+from tokenizers.pre_tokenizers import Sequence, Split, Whitespace
 from pathlib import Path
-from tokenizers.pre_tokenizers import Sequence, Whitespace, Punctuation
 
-# Collect processed token files
+# 1) Gather your processed files
 token_files_dir = Path("./examples")
 paths = [str(x) for x in token_files_dir.glob("**/*processed.txt")]
 
-print(f"Found {len(paths)} token file(s) for training.")
-
-# Initialize a WordPiece tokenizer
+# 2) Initialize WordPiece
 tokenizer = Tokenizer(models.WordPiece(unk_token="[UNK]"))
-# Split on whitespace so each token line is one subword candidate
+
+# 3) Pre-tokenize: first break out “:”, then split on whitespace
 tokenizer.pre_tokenizer = Sequence([
-    Whitespace(),
-    Punctuation()   # splits off “:”, “,”, etc., before BPE/WordPiece merges
+    Split(pattern=":", behavior="isolated"),
+    Whitespace()
 ])
 
-# Configure the WordPiece trainer
+# 4) Trainer
 trainer = WordPieceTrainer(
     vocab_size=52000,
     min_frequency=1,
-    special_tokens=[
-        "[UNK]",     # for OOV tokens
-        "rest",
-        "wait",
-        "note",
-        "bfs",
-        "nfx"
-    ]
+    special_tokens=["[UNK]", "rest", "wait", "note", "bfs", "nfx"]
 )
 
-# Train the tokenizer
+# 5) Train & inspect
 tokenizer.train(files=paths, trainer=trainer)
+full_vocab = tokenizer.get_vocab()
+print("New vocab size:", len(full_vocab))
+for tok, idx in list(full_vocab.items())[:20]:
+    print(idx, tok)
 
-# Save the trained vocab
+# 6) Save
 output_dir = Path("./vocabs")
 output_dir.mkdir(exist_ok=True)
 tokenizer.save(str(output_dir / "word_piece_vocab.json"))
-
