@@ -60,7 +60,16 @@
   ],
   "normalizer": null,
   "pre_tokenizer": {
-    "type": "Whitespace"
+    "type": "Sequence",
+    "pretokenizers": [
+      {
+        "type": "Whitespace"
+      },
+      {
+        "type": "Punctuation",
+        "behavior": "Isolated"
+      }
+    ]
   },
   "post_processor": null,
   "decoder": null,
