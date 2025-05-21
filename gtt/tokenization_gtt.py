@@ -1,6 +1,6 @@
 import collections
 import os
-from typing import List, Union, Optional, Tuple
+from typing import Optional, Tuple
 from transformers.utils import logging
 
 logger = logging.get_logger(__name__)
@@ -86,5 +86,3 @@ class GttTokenizer(PreTrainedTokenizer):
                 writer.write(token + "\n")
                 index += 1
         return (vocab_file,)
-
-

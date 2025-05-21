@@ -1,7 +1,9 @@
-import guitarpro as gp
 import os
 
+import guitarpro as gp
+
 data_folder = "/home/claudehu/Desktop/data/music/gps/rdcf"
+
 
 def string_tuning_combinations(data_folder):
     gps_files = os.listdir(data_folder)
@@ -26,11 +28,8 @@ def string_tuning_combinations(data_folder):
     unique_tunings = [set(string) for string in string_tunings]
     uniqe_values = [set(string) for string in string_values]
 
-    return {
-        "tunings": unique_tunings,
-        "values": uniqe_values,
-        "map": val_tune_dict
-    }
+    return {"tunings": unique_tunings, "values": uniqe_values, "map": val_tune_dict}
+
 
 tuning_combos = string_tuning_combinations(data_folder)
 
@@ -49,5 +48,3 @@ for i, string in enumerate(tuning_combos["tunings"]):
 with open(os.path.join(data_folder, "note_vocab.txt"), "w") as f:
     for note in note_vocabs:
         f.write(note + "\n")
-
-
