@@ -17,11 +17,20 @@ from token_splitter import split_rare_token, unsplit_fx
 # "clean" = Clean Electric Guitar or Acoustic Guitar
 
 instrument_groups = {
- 24: 'clean',
- 25: 'clean',
- 26: 'clean',
- 27: 'clean',
- 28: 'clean'}
+    24: 'clean',
+    25: 'clean',
+    26: 'clean',
+    27: 'clean',
+    28: 'clean',
+    120: 'remove',
+    121: 'remove',
+    122: 'remove',
+    123: 'remove',
+    124: 'remove',
+    125: 'remove',
+    126: 'remove',
+    127: 'remove',
+}
 
 # Basically the same function as numpy.diff
 # Subtracts consecutive numbers
@@ -727,7 +736,7 @@ def guitarpro2tokens(song, artist, verbose=False):
         break
 
     max_bass = 1
-    max_clean = 2
+    max_clean = 3
     max_distorted = 3
     n_bass = len(tracks_by_group["bass"])
     n_clean = len(tracks_by_group["clean"])
@@ -1087,7 +1096,8 @@ def tokens2guitarpro(all_tokens, verbose=False):
 
     instrument_check = {
         "clean0": False,
-        "clean1": False
+        "clean1": False,
+        "clean2": False
     }
     for token in body:
         tokensplit = token.split(":")
@@ -1100,6 +1110,7 @@ def tokens2guitarpro(all_tokens, verbose=False):
     instrument_stringinfo = {
         "clean0": False,
         "clean1": False,
+        "clean2": False
     }
 
     for instrument in instrument_stringinfo:
@@ -1404,6 +1415,10 @@ def tokens2guitarpro(all_tokens, verbose=False):
             new_track.channel.instrument = 26 # Electric Guitar (jazz)
             new_track.color = gp.Color(r=255, g=180, b=100, a=1)
             new_track.name = "Clean Guitar 2"
+        elif (instrument == "clean2"):
+            new_track.channel.instrument = 25  # Acoustic Guitar (steel)
+            new_track.color = gp.Color(r=255, g=180, b=100, a=1)
+            new_track.name = "Clean Guitar 3"
         else:
             assert False, "Unsupported instrument"
         # Now set the strings

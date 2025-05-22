@@ -1,7 +1,8 @@
 import os
 import subprocess
-import pprint
-import re
+
+# import pprint
+# import re
 
 script_path = "/home/claudehu/Desktop/repo/guitar-tab-transformer/backend/tab-processing/simplified_dadagp.py"
 
@@ -20,16 +21,24 @@ for gp_file in os.listdir(input_folder):
     print(f"\n=== Processing {gp_file} ===")
     try:
         result = subprocess.run(
-            command, capture_output=True, text=True, cwd=os.path.dirname(script_path), check=True
+            command,
+            capture_output=True,
+            text=True,
+            cwd=os.path.dirname(script_path),
+            check=True,
         )
         print("STDOUT:")
         print(result.stdout)
     except subprocess.CalledProcessError as e:
-        py_error = re.findall(r"^\s*(\w+Error|Exception):\s*(.*)$", e.stderr, re.MULTILINE)
-        error_files[gp_file] = py_error[-1] if py_error else "Unknown error"
-        print(f"❌ Error processing {gp_file}")
+        error_files[gp_file] = e.stderr
+        # py_error = re.findall(r"^\s*(\w+Error|Exception):\s*(.*)$", e.stderr, re.MULTILINE)
+        # error_files[gp_file] = py_error[-1] if py_error else "Unknown error"
+        # print(f"❌ Error processing {gp_file}")
 
 
 print("\n=== Summary ===")
+print(f"{len(error_files)} files encountered errors:")
 if error_files:
-    pprint.pprint(error_files)
+    for file, error in error_files.items():
+        print(f"\t{file}")
+        print(error)
