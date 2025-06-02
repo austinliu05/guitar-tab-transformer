@@ -1,6 +1,48 @@
 import re
-from typing import List, Union
+from typing import List, Dict, Tuple, Union
 import os
+
+def is_instrumental(token: str) -> bool:
+    return token.startswith("note:")
+
+def strip_non_instrumental(tokens: List[str]) -> Tuple[List[str], Dict[int, str]]:
+    """
+    Returns:
+      - pure_tokens:    [ all tokens t where is_instrumental(t) is True ]
+      - removed_map:    { original_index: removed_token } for each token
+                        where is_instrumental(token) is False.
+    """
+    pure_tokens: List[str] = []
+    removed_map: Dict[int, str] = {}
+    
+    for idx, tok in enumerate(tokens):
+        if is_instrumental(tok):
+            pure_tokens.append(tok)
+        else:
+            removed_map[idx] = tok
+    return pure_tokens, removed_map
+
+def restore_non_instrumental(pure_tokens: List[str], removed_map: Dict[int, str]) -> List[str]:
+    """
+    Rebuilds a full token list.
+
+    - Places each removed_map[idx] at index `idx`.
+    - Fills the remaining None slots (in ascending index order) with the
+        items from pure_tokens, in order.
+    """
+    total_length = len(pure_tokens) + len(removed_map)
+    reconstructed = [None] * total_length  
+    
+    for idx, tok in removed_map.items():
+        reconstructed[idx] = tok
+
+    i_pure = 0
+    for i in range(total_length):
+        if reconstructed[i] is None:
+            reconstructed[i] = pure_tokens[i_pure]
+            i_pure += 1
+
+    return reconstructed
 
 def sort_notes(pruned_notes: List[str]):
     # Define a key function for sorting based on "s<number>:" in the token.
@@ -132,9 +174,11 @@ def process_raw_acoustic_solo_tokens(tokens: Union[str, List[str]]):
     
     return processed_body
 
+
 def main():
     examples_folder = "examples"
-    # Clean up previously processed files
+
+    # Clean up any previously processed files
     for fname in os.listdir(examples_folder):
         if "processed" in fname:
             path = os.path.join(examples_folder, fname)
@@ -145,26 +189,40 @@ def main():
         print(f"The folder '{examples_folder}' does not exist.")
         return
 
-    # Process only .txt files in the examples folder.
     for filename in os.listdir(examples_folder):
-        if filename.endswith(".txt"):
-            filepath = os.path.join(examples_folder, filename)
-            if os.path.isfile(filepath):
-                print(f"\nProcessing file: {filename}")
-                try:
-                    processed_tokens = process_raw_acoustic_solo_tokens(filepath)
-                    
-                    # Create a new filename by appending "_processed" to the original name.
-                    name, ext = os.path.splitext(filename)
-                    new_filename = f"{name}_processed{ext}"
-                    new_filepath = os.path.join(examples_folder, new_filename)
-                    
-                    with open(new_filepath, 'w') as outfile:
-                        outfile.write("\n".join(processed_tokens))
-                    
-                    print(f"Processed tokens saved to: {new_filename}")
-                except Exception as e:
-                    print(f"An error occurred while processing {filename}: {e}")
+        if not filename.endswith(".txt"):
+            continue
+
+        filepath = os.path.join(examples_folder, filename)
+        if not os.path.isfile(filepath):
+            continue
+
+        print(f"\nProcessing file: {filename}")
+        try:
+            # Get a “fully processed” list:
+            processed_tokens: List[str] = process_raw_acoustic_solo_tokens(filepath)
+
+            # Strip out all non‐instrumental tokens
+            pure_tokens, removed_map = strip_non_instrumental(processed_tokens)
+            base_name, ext = os.path.splitext(filename)
+            predicted_pure = pure_tokens.copy()
+
+            # Re‐insert the non‐instrumental tokens in exactly the same spots:
+            reconstructed = restore_non_instrumental(predicted_pure, removed_map)
+
+            base_name, ext = os.path.splitext(filename)
+            processed_filename = f"{base_name}_processed{ext}"
+            with open(os.path.join(examples_folder, processed_filename), "w") as f_proc:
+                f_proc.write("\n".join(processed_tokens))
+            print(f"  → Fully processed tokens saved to: {processed_filename}")
+
+            reconstructed_filename = f"{base_name}_reconstructed{ext}"
+            with open(os.path.join(examples_folder, reconstructed_filename), "w") as f_recon:
+                f_recon.write("\n".join(reconstructed))
+            print(f"  → Reconstructed tokens saved to: {reconstructed_filename}")
+
+        except Exception as e:
+            print(f"An error occurred while processing {filename}: {e}")
 
 if __name__ == "__main__":
     main()
