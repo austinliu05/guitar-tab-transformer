@@ -8,6 +8,6 @@ Guitar Tab Transformer (GTT) is a passion project aiming to automatically transc
   Transformer-based sequence model that takes tokenized inputs and generates corresponding guitar tab tokens.  
   [repo](https://github.com/austinliu05/gtt-model)
 
-- **gtt-tokenizer**  
-  Custom tokenizer that converts raw audio or sheet-music representations into a discrete token sequence suitable for the Transformer model.  
-  [repo](https://github.com/austinliu05/gtt-tokenizer)
+- **acoustic-solo-dadaGP**  
+  Modified open source `dadaGP` package, tailoring it to handle only acoustic fingerstyle guitar.  
+  [repo](https://github.com/austinliu05/acoustic-solo-dadaGP)
